@@ -10,10 +10,12 @@
     --light-text-color: hsl(216, 25%, 25%);
     --light-secondary1-text-color: hsl(219, 13%, 44%);
     --light-secondary2-text-color: hsl(0, 0%, 100%);
-    --light-background-color: hsl(277, 91%, 56%);
+    --light-btn-background-color: hsl(277, 91%, 56%);
     --light-option-background-color: hsl(220, 38%, 97%);
-    --light-logo-background-color: hsl(277, 100%, 95%);
-
+    --html-logo-background-color: hsl(22, 100%, 96%);
+    --css-logo-background-color: hsl(151, 87%, 94%);
+    --javascript-logo-background-color: hsl(223, 100%, 96%);
+    --accessibility-logo-background-color: hsl(277, 100%, 95%);
 }
 
 *, *::before, *::after {
@@ -22,14 +24,25 @@
     padding: 0;
     font-family: 'Rubik', sans-serif;
 }
+body {
+    background-color: hsl(223, 100%, 94%);
+    /* background-color: hsl(hue, saturation, lightness); */
+}
 .body {
+    max-width: 450px;
     min-height: 100vh;
     background-image: url('./assets/images/pattern-background-mobile-light.svg');
     background-size: cover;
     padding: 16px 24px;
+    margin: 0 auto;
 }
 img {
     display: block;
+}
+.header-tag__img, 
+.startpage-option__logo {
+    padding: 8px;
+    border-radius: 5px;
 }
 
 
@@ -38,19 +51,18 @@ img {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 48px;
+    gap: 16px;
 }
 
 
 .header-tag {
-    visibility: hidden;
+    /* visibility: hidden; */
     display: flex;
     align-items: center;
     gap: 16px;
 }
 .header-tag__img {
-    background-color: var(--light-logo-background-color);
-    padding: 8px;
-    border-radius: 5px;
+    background-color: var(--accessibility-logo-background-color);
 }
 .header-tag__text {
     font-size: 1.2rem;
@@ -64,7 +76,7 @@ img {
     align-items: center;
 }
 .toggle-btn {
-    background-color: var(--light-background-color);
+    background-color: var(--light-btn-background-color);
     width: 50px;
     height: 30px;
     padding: 7px;
@@ -92,4 +104,37 @@ img {
     font-family: 'Rubik-italic', sans-serif;
     color: var(--light-secondary1-text-color);
     margin-block-end: 40px;
+}
+
+
+.startpage-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.startpage-option {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--light-secondary2-text-color)
+}
+.startpage-option__text {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.html {
+    background-color: var(--html-logo-background-color);
+}
+.css {
+    background-color: var(--css-logo-background-color);
+}
+.javascript {
+    background-color: var(--javascript-logo-background-color);
+}
+.accessibility {
+    background-color: var(--accessibility-logo-background-color);
 }

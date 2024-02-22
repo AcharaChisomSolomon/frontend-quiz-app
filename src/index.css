@@ -27,11 +27,13 @@
 body {
     background-color: hsl(223, 100%, 94%);
 }
+.container {
+    background-image: url('./assets/images/pattern-background-mobile-light.svg');
+    background-size: cover;
+}
 .body {
     max-width: 450px;
     min-height: 100vh;
-    background-image: url('./assets/images/pattern-background-mobile-light.svg');
-    background-size: cover;
     padding: 16px 24px;
     margin: 0 auto;
 }
@@ -106,8 +108,9 @@ img {
 }
 
 
-.startpage-option:hover, .quiz-option:hover {
-    background-color: var(--light-btn-background-color);
+.quiz-option:hover .quiz-option__tag {
+    background-color: hsl(277, 91%, 94%);
+    color: var(--light-btn-background-color);
 }
 .startpage-option:active, .quiz-option:active {
     outline: 2px solid var(--light-btn-background-color);
@@ -118,7 +121,7 @@ img {
 .startpage-options, .quiz-options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.8em;
 }
 .startpage-option, .quiz-option {
     display: flex;
@@ -199,6 +202,7 @@ img {
 
 
 .error {
+    margin-block-start: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -278,3 +282,48 @@ img {
 /* 
     className for correct but not selected -> 'correct-not-selected'
 */
+
+
+@media (min-width: 500px) {
+    html {
+        font-size: 20px;
+    }
+    .container {
+        background-image: url('./assets/images/pattern-background-tablet-light.svg');
+        background-size: cover;
+    }
+    .body {
+        max-width: 750px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 770px) {
+    html {
+        font-size: 20px;
+    }
+    .container {
+        background-image: url('./assets/images/pattern-background-desktop-light.svg');
+    }
+    .body {
+        max-width: 1110px;
+    }
+    .flex-body {
+        width: 45%;
+    }
+
+    .quizpage, 
+    .startpage {
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    .quiz-visualNum__container {
+        margin-block-start: 5rem;
+    }
+
+    .startpage-text {
+        margin-block-start: 3rem;
+    }
+}

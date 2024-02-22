@@ -14,7 +14,7 @@ const Header = () => {
                 <img src={tagLogo} />
             </div>
             <p className='header-tag__text'>Accessibility</p>
-            </div>
+        </div>
             
         <div className="toggle-container">
             <div className='toggle-light'>

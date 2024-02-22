@@ -1,7 +1,8 @@
 import questions from './data.json'
 import Header from './components/Header'
 // import StartPage from './components/StartPage'
-import QuizPage from './components/QuizPage'
+// import QuizPage from './components/QuizPage'
+import QuizCompletion from './components/QuizCompletion'
 
 function App() {
   console.log(questions)
@@ -10,7 +11,8 @@ function App() {
     <div className='body'>
       <Header />
       {/* <StartPage /> */}
-      <QuizPage />
+      {/* <QuizPage /> */}
+      <QuizCompletion />
     </div>
   )
 }

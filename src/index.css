@@ -178,7 +178,7 @@ img {
     padding: 11px 17px;
     border-radius: 6px;
 }
-.quiz-submit {
+.quiz-submit, .quiz-complete__btn {
     width: 100%;
     background-color: var(--light-btn-background-color);
     padding: 20px;
@@ -190,7 +190,7 @@ img {
     color: var(--light-secondary2-text-color);
     margin-block-start: 12px;
 }
-.quiz-submit:hover {
+.quiz-submit:hover, .quiz-complete__btn:hover {
     background-color: hsl(277, 91%, 46%);
 }
 .quiz-option__logo {
@@ -209,6 +209,36 @@ img {
     font-weight: 400;
     color: hsl(0, 82%, 63%)
 
+}
+
+
+.result h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+.result h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 32px;
+    background-color: var(--light-secondary2-text-color);
+    border-radius: 12px;
+    box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+    margin: 40px 0 12px;
+}
+.result-score {
+    font-size: 5.5rem;
+    font-weight: 500;
+}
+.result-total {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--light-secondary1-text-color);
 }
 
 

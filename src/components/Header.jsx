@@ -1,8 +1,8 @@
 import tagLogo from '../assets/images/icon-accessibility.svg'
-// import lightModeLogoLight from '../assets/images/icon-sun-light.svg'
-import lightModeLogoDark from '../assets/images/icon-sun-dark.svg'
-// import darkModeLogoLight from '../assets/images/icon-moon-light.svg'
-import darkModeLogoDark from '../assets/images/icon-moon-dark.svg'
+import lightModeLogoLight from '../assets/images/icon-sun-light.svg'
+// import lightModeLogoDark from '../assets/images/icon-sun-dark.svg'
+import darkModeLogoLight from '../assets/images/icon-moon-light.svg'
+// import darkModeLogoDark from '../assets/images/icon-moon-dark.svg'
 
 
 const Header = () => { 
@@ -18,13 +18,13 @@ const Header = () => {
             
         <div className="toggle-container">
             <div className='toggle-light'>
-                <img src={lightModeLogoDark} />        
+                <img src={lightModeLogoLight} />        
             </div>
             <div className='toggle-btn'>
                 <div className='toggle-circle'></div>    
             </div>
             <div className='toggle-dark'>
-                <img src={darkModeLogoDark} />    
+                <img src={darkModeLogoLight} />    
             </div>
             </div>
             

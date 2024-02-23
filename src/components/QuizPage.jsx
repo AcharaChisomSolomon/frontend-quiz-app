@@ -1,5 +1,5 @@
 // import correctLogo from '../assets/images/icon-correct.svg';
-// import wrongLogo from '../assets/images/icon-error.svg';
+import wrongLogo from '../assets/images/icon-error.svg';
 
 const QuizPage = () => {
     return (
@@ -47,14 +47,14 @@ const QuizPage = () => {
           </div>
 
           <button className="quiz-submit">Submit Answer</button>
-          {/* <div className='error'>
+          <div className='error'>
             <div className='error-logo'>
                 <img src={wrongLogo} alt="An error messsage" />
             </div>
             <div className='error-text'>
                 <p>Please select an answer</p>
             </div>
-        </div> */}
+        </div>
         </div>
       </div>
     );

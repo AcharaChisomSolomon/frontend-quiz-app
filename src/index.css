@@ -64,7 +64,7 @@ img {
 
 
 .header-tag {
-    /* visibility: hidden; */
+    visibility: hidden;
     display: flex;
     align-items: center;
     gap: 16px;

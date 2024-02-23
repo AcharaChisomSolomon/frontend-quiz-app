@@ -1,8 +1,8 @@
 import questions from './data.json'
 import Header from './components/Header'
-// import StartPage from './components/StartPage'
+import StartPage from './components/StartPage'
 // import QuizPage from './components/QuizPage'
-import QuizCompletion from './components/QuizCompletion'
+// import QuizCompletion from './components/QuizCompletion'
 import { useState } from 'react'
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
         <Header
           colorMode={colorMode}
           handleColorModeChange={handleColorModeChange} />
-        {/* <StartPage /> */}
+        <StartPage />
         {/* <QuizPage /> */}
-        <QuizCompletion />
+        {/* <QuizCompletion /> */}
       </div>
     </div>
   );

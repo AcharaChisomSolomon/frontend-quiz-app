@@ -1,11 +1,16 @@
 import tagLogo from '../assets/images/icon-accessibility.svg'
 import lightModeLogoLight from '../assets/images/icon-sun-light.svg'
-// import lightModeLogoDark from '../assets/images/icon-sun-dark.svg'
+import lightModeLogoDark from '../assets/images/icon-sun-dark.svg'
 import darkModeLogoLight from '../assets/images/icon-moon-light.svg'
-// import darkModeLogoDark from '../assets/images/icon-moon-dark.svg'
+import darkModeLogoDark from '../assets/images/icon-moon-dark.svg'
 
 
-const Header = () => { 
+// eslint-disable-next-line react/prop-types
+const Header = ({ colorMode, handleColorModeChange }) => { 
+    const darkModeStyle = {
+        marginInlineStart: 'auto'
+    }
+
     return (
         <div className="header">
             
@@ -16,16 +21,20 @@ const Header = () => {
             <p className='header-tag__text'>Accessibility</p>
         </div>
             
-        <div className="toggle-container">
+            <div className="toggle-container">
+                
             <div className='toggle-light'>
-                <img src={lightModeLogoLight} />        
+                <img src={colorMode === 'dark' ? lightModeLogoLight : lightModeLogoDark} />        
             </div>
-            <div className='toggle-btn'>
-                <div className='toggle-circle'></div>    
-            </div>
-            <div className='toggle-dark'>
-                <img src={darkModeLogoLight} />    
-            </div>
+                
+            <div className='toggle-btn' onClick={handleColorModeChange}>
+                <div
+                    className='toggle-circle'
+                    style={colorMode ? darkModeStyle : null}></div>    
+                </div>
+                <div className='toggle-dark'>
+                    <img src={colorMode === 'dark' ? darkModeLogoLight : darkModeLogoDark} />    
+                </div>
             </div>
             
       </div>

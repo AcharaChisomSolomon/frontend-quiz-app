@@ -6,8 +6,11 @@ import StartPage from './components/StartPage'
 import { useState } from 'react'
 
 function App() {
-  console.log(questions)
+  const [quizSections, setQuizSections] = useState(() => questions.quizzes)
+  const [currentSection, setCurrentSection] = useState(-1)
   const [colorMode, setColorMode] = useState('')
+
+  console.log(quizSections)
 
   const handleColorModeChange = () => {
     setColorMode(colorMode === 'dark' ? '' : 'dark')
@@ -18,7 +21,10 @@ function App() {
       <div className="body">
         <Header
           colorMode={colorMode}
-          handleColorModeChange={handleColorModeChange} />
+          handleColorModeChange={handleColorModeChange}
+          currentSection={currentSection}
+          quizSections={quizSections}
+        />
         <StartPage />
         {/* <QuizPage /> */}
         {/* <QuizCompletion /> */}

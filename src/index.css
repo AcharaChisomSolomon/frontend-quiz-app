@@ -223,6 +223,7 @@ img {
 
 
 .error {
+    visibility: hidden;
     margin-block-start: 16px;
     display: flex;
     justify-content: center;

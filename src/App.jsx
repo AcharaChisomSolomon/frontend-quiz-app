@@ -18,6 +18,7 @@ function App() {
   const [quizSections, setQuizSections] = useState(() => questions.quizzes)
   const [currentSection, setCurrentSection] = useState(-1)
   const [currentQuizSection, setCurrentQuizSection] = useState(null)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [colorMode, setColorMode] = useState('')
 
   const gameInSession = currentSection !== -1

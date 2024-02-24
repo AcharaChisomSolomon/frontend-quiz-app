@@ -54,7 +54,7 @@ const QuizPage = () => {
             <div className='error-text'>
                 <p>Please select an answer</p>
             </div>
-        </div>
+          </div>  
         </div>
       </div>
     );

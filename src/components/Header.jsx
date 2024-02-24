@@ -26,7 +26,7 @@ const Header = ({
     let logoToUse = ''
     let backgroundLogoColorClass = ''
 
-    if (!currentSection && currentSection >= 0) {
+    if (currentSection >= 0) {
         let currentQuiz = quizSections[currentSection]
         const { title } = currentQuiz
         text = title

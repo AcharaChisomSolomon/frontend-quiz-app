@@ -1,49 +1,54 @@
-// import correctLogo from '../assets/images/icon-correct.svg';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import QuizButton from './QuizButton';
+import correctLogo from '../assets/images/icon-correct.svg';
 import wrongLogo from '../assets/images/icon-error.svg';
 
-const QuizPage = () => {
+const QuizPage = ({ currentQuestion, currentQuestionIndex }) => {
+  // eslint-disable-next-line no-undef
+  const [options, setOptions] = useState(currentQuestion.options.map((option, i) => ({ index: i, option, selected: false })))
+
+  const visualStyle = {
+    width: `${(currentQuestionIndex + 1) * 10}%`
+  }
+  console.log(options)
+
+  const handleOptionClick = (index) => { 
+    const newOptions = options.map((option, i) => {
+      if (i === index) {
+        return { ...option, selected: true }
+      }
+      return { ...option, selected: false }
+    })
+    setOptions(newOptions)
+  }
+
     return (
       <div className="quizpage">
         <div className="flex-body">
-          <p className="quiz-text">Question 6 of 10</p>
+          <p className="quiz-text">Question {currentQuestionIndex + 1} of 10</p>
 
           <h3 className="quiz-question">
-            Which of these color contrast ratios defines the minimum WCAG 2.1 AA
-            requirement for normal text?
+            {currentQuestion.question}
           </h3>
 
           <div className="quiz-visualNum__container">
-            <div className="quiz-visualNum"></div>
+            <div className="quiz-visualNum" style={visualStyle}></div>
           </div>
         </div>
 
         <div className="flex-body">
           <div className="quiz-options">
-            <button className="quiz-option">
-              <div className="quiz-option__tag">A</div>
-              <div className="quiz-option__text">4.5:1</div>
-            </button>
-            <button className="quiz-option">
-              <div className="quiz-option__tag">B</div>
-              <div className="quiz-option__text">3:1</div>
-              {/* <div className="quiz-option__logo">
-              <img src={correctLogo} alt="Correct answer" />
-            </div> */}
-            </button>
-            <button className="quiz-option">
-              <div className="quiz-option__tag">C</div>
-              <div className="quiz-option__text">2.5:1</div>
-              {/* <div className="quiz-option__logo">
-              <img src={wrongLogo} alt="Wrong answer" />
-            </div> */}
-            </button>
-            <button className="quiz-option">
-              <div className="quiz-option__tag">D</div>
-              <div className="quiz-option__text">5:1</div>
-              {/* <div className="quiz-option__logo">
-              <img src={correctLogo} alt="Correct answer" />
-            </div> */}
-            </button>
+            {
+              options.map((option, i) => (
+                <QuizButton
+                  key={option.index}
+                  onClick={() => handleOptionClick(option.index)}
+                  option={option}
+                />
+              ))
+            }
           </div>
 
           <button className="quiz-submit">Submit Answer</button>

@@ -51,7 +51,10 @@ function App() {
           quizSections={quizSections}
         />
         {currentSection === -1 && <StartPage handleSectionChange={handleSectionChange} />}
-        {currentSection !== -1 && gameInSession && <QuizPage />}
+        {currentSection !== -1 && gameInSession && <QuizPage
+          currentQuestion={currentQuizSection.questions[currentQuestionIndex]}
+          currentQuestionIndex={currentQuestionIndex}
+        />}
         {currentSection !== -1 && !gameInSession && <QuizCompletion />}
       </div>
     </div>

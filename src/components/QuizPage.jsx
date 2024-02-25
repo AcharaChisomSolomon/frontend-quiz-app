@@ -2,26 +2,46 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import QuizButton from './QuizButton';
-import correctLogo from '../assets/images/icon-correct.svg';
 import wrongLogo from '../assets/images/icon-error.svg';
 
 const QuizPage = ({ currentQuestion, currentQuestionIndex }) => {
   // eslint-disable-next-line no-undef
-  const [options, setOptions] = useState(currentQuestion.options.map((option, i) => ({ index: i, option, selected: false })))
+  const [options, setOptions] = useState(currentQuestion.options.map((option, i) => ({
+    index: i,
+    option,
+    selected: false
+  })))
+  const [submissionStatus, setSubmissionStatus] = useState({
+    isSubmitted: false,
+    isVerified: false
+  })
+  const { isSubmitted, isVerified, isHighlighted } = submissionStatus
 
   const visualStyle = {
     width: `${(currentQuestionIndex + 1) * 10}%`
   }
   console.log(options)
 
+  const isAnyOptionSelected = options.some(option => option.selected)
+
+  const handleSubmit = () => { 
+    if (isAnyOptionSelected) {
+      setSubmissionStatus({ isVerified: true, isSubmitted: true })
+    } else {
+      setSubmissionStatus({ isSubmitted: true, isVerified: false })
+    }
+  }
+
   const handleOptionClick = (index) => { 
-    const newOptions = options.map((option, i) => {
-      if (i === index) {
-        return { ...option, selected: true }
-      }
-      return { ...option, selected: false }
-    })
-    setOptions(newOptions)
+    if (!isVerified) {
+      const newOptions = options.map((option, i) => {
+        if (i === index) {
+          return { ...option, selected: true };
+        }
+        return { ...option, selected: false };
+      });
+      setOptions(newOptions);
+    }
   }
 
     return (
@@ -29,9 +49,7 @@ const QuizPage = ({ currentQuestion, currentQuestionIndex }) => {
         <div className="flex-body">
           <p className="quiz-text">Question {currentQuestionIndex + 1} of 10</p>
 
-          <h3 className="quiz-question">
-            {currentQuestion.question}
-          </h3>
+          <h3 className="quiz-question">{currentQuestion.question}</h3>
 
           <div className="quiz-visualNum__container">
             <div className="quiz-visualNum" style={visualStyle}></div>
@@ -40,26 +58,34 @@ const QuizPage = ({ currentQuestion, currentQuestionIndex }) => {
 
         <div className="flex-body">
           <div className="quiz-options">
-            {
-              options.map((option, i) => (
-                <QuizButton
-                  key={option.index}
-                  onClick={() => handleOptionClick(option.index)}
-                  option={option}
-                />
-              ))
-            }
+            {options.map((option, i) => (
+              <QuizButton
+                key={option.index}
+                onClick={() => handleOptionClick(option.index)}
+                option={option}
+                isAnyOptionSelected={isAnyOptionSelected}
+                isVerified={isVerified}
+                answer={currentQuestion.answer}
+              />
+            ))}
           </div>
 
-          <button className="quiz-submit">Submit Answer</button>
-          <div className='error'>
-            <div className='error-logo'>
+          <button className="quiz-submit" onClick={handleSubmit}>
+            {isSubmitted && isAnyOptionSelected && isVerified
+              ? "Next Question"
+              : "Submit Answer"
+            }
+          </button>
+          {isSubmitted && !isAnyOptionSelected && (
+            <div className="error">
+              <div className="error-logo">
                 <img src={wrongLogo} alt="An error messsage" />
-            </div>
-            <div className='error-text'>
+              </div>
+              <div className="error-text">
                 <p>Please select an answer</p>
+              </div>
             </div>
-          </div>  
+          )}
         </div>
       </div>
     );

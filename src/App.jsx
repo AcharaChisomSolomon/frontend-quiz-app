@@ -19,16 +19,15 @@ function App() {
   const [currentSection, setCurrentSection] = useState(-1)
   const [currentQuizSection, setCurrentQuizSection] = useState(null)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const [correctAnswers, setCorrectAnswers] = useState(0)
   const [colorMode, setColorMode] = useState('')
 
-  const gameInSession = currentSection !== -1
-
-  console.log(quizSections)
-  console.log(currentQuizSection)
+  const gameInSession = currentSection !== -1 && currentQuestionIndex < 10
 
   const handleColorModeChange = () => {
     setColorMode(colorMode === 'dark' ? '' : 'dark')
   }
+
   const handleSectionChange = (sectionIndex) => {
     setCurrentSection(sectionIndex)
     
@@ -39,6 +38,13 @@ function App() {
     })
     const quiz = { ...section, questions }
     setCurrentQuizSection(quiz)
+  }
+
+  const handleReset = () => { 
+    setCurrentSection(-1)
+    setCurrentQuizSection(null)
+    setCurrentQuestionIndex(0)
+    setCorrectAnswers(0)
   }
   
   return (
@@ -54,8 +60,15 @@ function App() {
         {currentSection !== -1 && gameInSession && <QuizPage
           currentQuestion={currentQuizSection.questions[currentQuestionIndex]}
           currentQuestionIndex={currentQuestionIndex}
+          setCurrentQuestionIndex={setCurrentQuestionIndex}
+          setCorrectAnswers={setCorrectAnswers}
         />}
-        {currentSection !== -1 && !gameInSession && <QuizCompletion />}
+        {currentSection !== -1 && !gameInSession && <QuizCompletion
+          correctAnswers={correctAnswers}
+          currentSection={currentSection}
+          quizSections={quizSections}
+          handleReset={handleReset}
+        />}
       </div>
     </div>
   );

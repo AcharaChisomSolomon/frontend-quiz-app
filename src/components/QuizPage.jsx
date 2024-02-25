@@ -1,34 +1,58 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import QuizButton from './QuizButton';
 import wrongLogo from '../assets/images/icon-error.svg';
 
-const QuizPage = ({ currentQuestion, currentQuestionIndex }) => {
+const QuizPage = ({
+  currentQuestion,
+  currentQuestionIndex,
+  setCurrentQuestionIndex,
+  setCorrectAnswers
+}) => {
   // eslint-disable-next-line no-undef
   const [options, setOptions] = useState(currentQuestion.options.map((option, i) => ({
     index: i,
     option,
     selected: false
   })))
+
+  useEffect(() => {
+    setOptions(currentQuestion.options.map((option, i) => ({
+      index: i,
+      option,
+      selected: false
+    })))
+   }, [currentQuestion])
+
   const [submissionStatus, setSubmissionStatus] = useState({
     isSubmitted: false,
     isVerified: false
   })
-  const { isSubmitted, isVerified, isHighlighted } = submissionStatus
+  const { isSubmitted, isVerified } = submissionStatus
 
   const visualStyle = {
     width: `${(currentQuestionIndex + 1) * 10}%`
   }
-  console.log(options)
 
   const isAnyOptionSelected = options.some(option => option.selected)
+  const checkIfCorrectOptionSelected = options.some(option => option.selected && option.option === currentQuestion.answer)
 
   const handleSubmit = () => { 
-    if (isAnyOptionSelected) {
-      setSubmissionStatus({ isVerified: true, isSubmitted: true })
-    } else {
-      setSubmissionStatus({ isSubmitted: true, isVerified: false })
+    if (isSubmitted && isVerified) {
+      if (checkIfCorrectOptionSelected) { 
+        setCorrectAnswers(prevAnswers => prevAnswers + 1)
+      }
+      setCurrentQuestionIndex(currentQuestionIndex + 1)
+      setSubmissionStatus({ isVerified: false, isSubmitted: false })
+      const newOptions = options.map(option => ({ ...option, selected: false }))
+      setOptions(newOptions)
+    } else { 
+      if (isAnyOptionSelected) {
+        setSubmissionStatus({ isVerified: true, isSubmitted: true });
+      } else {
+        setSubmissionStatus({ isSubmitted: true, isVerified: false });
+      }
     }
   }
 

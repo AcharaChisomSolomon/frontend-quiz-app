@@ -148,6 +148,7 @@ const renderQuiz = () => {
                     currentListOfQuestions = [];
                     numOfCorrectAnswers = 0;
                     menuDisplay.style.display = 'block';
+                    quizContainer.innerHTML = '';
                 });
                 return;
             }

@@ -73,6 +73,7 @@ header {
     margin-bottom: clamp(3rem, 2.045801526717557rem + 4.071246819338422vw, 4rem);
 }
 .topic {
+    display: flex;
     align-items: center;
     gap: var(--button-padding-val);
 }

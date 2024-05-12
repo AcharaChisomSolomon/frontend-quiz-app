@@ -25,25 +25,24 @@ function shuffleArray(array) {
     return array;
 }
 
-const start = () => {
-    const menuDisplay = document.getElementById('menu');
-    const menuOptions = document.querySelectorAll('.menu-option');
-    const topic = document.getElementById('topic');
-    const headerLogo = document.getElementById('header-logo');
-    const headerText = document.getElementById('header-text');
-    menuOptions.forEach((option) => {
-        option.addEventListener('click', () => {
-            quizObject = quizzes[Number(option.id)];
-            console.log(quizObject);
-            currentListOfQuestions = shuffleArray(quizObject.questions);
-            menuDisplay.style.display = 'none';
-            topic.style.display = 'flex';
-            headerLogo.classList.add(`${quizObject.title.toLowerCase()}`);
-            headerText.textContent = quizObject.title;
-            renderQuiz();
-        });
+const menuDisplay = document.getElementById('menu');
+const menuOptions = document.querySelectorAll('.menu-option');
+const topic = document.getElementById('topic');
+const headerLogo = document.getElementById('header-logo');
+const headerText = document.getElementById('header-text');
+menuOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+        quizObject = quizzes[Number(option.id)];
+        console.log(quizObject);
+        currentListOfQuestions = shuffleArray(quizObject.questions);
+        menuDisplay.style.display = 'none';
+        topic.style.display = 'flex';
+        headerLogo.classList.add(`${quizObject.title.toLowerCase()}`);
+        headerText.textContent = quizObject.title;
+        renderQuiz();
     });
-}
+});
+
 
 const quizContainer = document.getElementById('quiz-container');
 const renderQuiz = () => { 
@@ -148,37 +147,8 @@ const renderQuiz = () => {
                     currentQuestionNum = null;
                     currentListOfQuestions = [];
                     numOfCorrectAnswers = 0;
-                    quizContainer.innerHTML = `
-                        <div class="heading">
-                            <h1>
-                                Welcome to the <span>Frontend Quiz!</span>
-                            </h1>
-                            <p>
-                                Pick a subject to get started.
-                            </p>
-                            </div>
-
-                            <div class="menu-options">
-                            <div class="menu-option" id="0">
-                                <div class="menu-option__logo html"></div>
-                                <p>HTML</p>
-                            </div>
-                            <div class="menu-option" id="1">
-                                <div class="menu-option__logo css"></div>
-                                <p>CSS</p>
-                            </div>
-                            <div class="menu-option" id="2">
-                                <div class="menu-option__logo javascript"></div>
-                                <p>JavaScript</p>
-                            </div>
-                            <div class="menu-option" id="3">
-                                <div class="menu-option__logo accessibility"></div>
-                                <p>Accessibility</p>
-                            </div>
-                            </div>
-                    `
+                    menuDisplay.style.display = 'block';
                 });
-                start();
                 return;
             }
             renderQuiz();

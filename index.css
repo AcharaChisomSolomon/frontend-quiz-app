@@ -72,7 +72,7 @@ header {
     margin-bottom: clamp(3rem, 2.045801526717557rem + 4.071246819338422vw, 4rem);
 }
 .topic {
-    display: flex;
+    display: none;
     align-items: center;
     gap: var(--button-padding-val);
 }
@@ -128,9 +128,6 @@ header {
 }
 
 
-.menu {
-    display: none;
-}
 .heading, .question-header {
     margin-bottom: var(--header-font-size);
 }
@@ -290,7 +287,7 @@ header {
 
 
 .completed {
-    /* display: none; */
+    display: none;
 }
 .display {
     display: flex;

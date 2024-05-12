@@ -51,12 +51,12 @@ body {
     font-size: var(--main-font-size);
     font-weight: 500;
     color: var(--theme-light-primary-color);
-    background-color: var(--theme-light-bg);
+    background: url(./assets/images/pattern-background-mobile-light.svg) no-repeat var(--theme-light-bg);
     min-height: 100vh;
 }
 .dark {
     color: var(--theme-dark-primary-color);
-    background-color: var(--theme-dark-bg);
+    background: url(./assets/images/pattern-background-mobile-dark.svg) no-repeat var(--theme-dark-bg);
 }
 .container {
     max-width: 90rem;
@@ -317,8 +317,24 @@ header {
 }
 
 
+@media only screen and (min-width: 700px) {
+    body {
+        background: url(./assets/images/pattern-background-tablet-light.svg) no-repeat var(--theme-light-bg);
+    }
+    .dark {
+        background: url(./assets/images/pattern-background-tablet-dark.svg) no-repeat var(--theme-dark-bg);
+    }
+}
+
+
 
 @media only screen and (min-width: 1000px) {
+    body {
+        background: url(./assets/images/pattern-background-desktop-light.svg) no-repeat var(--theme-light-bg);
+    }
+    .dark {
+        background: url(./assets/images/pattern-background-desktop-dark.svg) no-repeat var(--theme-dark-bg);
+    }
     section {
         display: grid;
         grid-template-columns: 1fr 1fr;

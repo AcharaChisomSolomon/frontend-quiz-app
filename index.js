@@ -148,6 +148,8 @@ const renderQuiz = () => {
                     numOfCorrectAnswers = 0;
                     menuDisplay.style.display = 'grid';
                     quizContainer.innerHTML = '';
+                    headerLogo.classList.remove(`${quizObject.title.toLowerCase()}`);
+                    headerText.textContent = '';
                 });
                 return;
             }

@@ -147,7 +147,7 @@ const renderQuiz = () => {
                     currentQuestionNum = null;
                     currentListOfQuestions = [];
                     numOfCorrectAnswers = 0;
-                    menuDisplay.style.display = 'block';
+                    menuDisplay.style.display = 'grid';
                     quizContainer.innerHTML = '';
                 });
                 return;

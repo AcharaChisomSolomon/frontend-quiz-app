@@ -167,6 +167,12 @@ header {
     padding: 0.75rem;
     cursor: pointer;
 }
+.menu-option:hover, .question-option:hover {
+    padding: 0.9rem;
+}
+.menu-option:active, .question-option:active {
+    padding: 0.6rem;
+}
 .dark .menu-option, .dark .question-option {
     background: var(--theme-dark-option-bg);
     box-shadow: var(--theme-dark-box-shadow);

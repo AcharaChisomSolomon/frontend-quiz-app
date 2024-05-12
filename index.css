@@ -125,7 +125,7 @@ header {
     width: calc(var(--theme-height) - 0.5rem);
     background: #fff;
     border-radius: 50%;
-    transition: transform 0.3s;
+    margin-left: auto;
 }
 
 

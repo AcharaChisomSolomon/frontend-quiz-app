@@ -301,9 +301,6 @@ header {
 }
 
 
-.completed {
-    display: none;
-}
 .display {
     display: flex;
     flex-direction: column;

@@ -53,6 +53,7 @@ body {
     color: var(--theme-light-primary-color);
     background: url(./assets/images/pattern-background-mobile-light.svg) no-repeat var(--theme-light-bg);
     min-height: 100vh;
+    background-position: left center;
 }
 .dark {
     color: var(--theme-dark-primary-color);

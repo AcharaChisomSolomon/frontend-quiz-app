@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend quiz app</title>
+
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <div class="topic">
+        <div class="topic-logo a11y"></div>
+        <p class="topic-title">Accessibility</p>
+      </div>
+      <div class="theme-switcher">
+        <div class="light-logo"></div>
+        <div class="switcher">
+          <div class="switcher-circle"></div>
+        </div>
+        <div class="dark-logo"></div>
+      </div>
+    </header>
+    
+    <main>
+
+      <!-- Quiz menu start -->
+      <section class="menu">
+        <div class="heading">
+          <h1>
+            Welcome to the <span>Frontend Quiz!</span>
+          </h1>
+          <p>
+            Pick a subject to get started.
+          </p>
+        </div>
+
+        <div class="menu-options">
+          <div class="menu-option">
+            <div class="menu-option__logo html"></div>
+            <p>HTML</p>
+          </div>
+          <div class="menu-option">
+            <div class="menu-option__logo css"></div>
+            <p>CSS</p>
+          </div>
+          <div class="menu-option">
+            <div class="menu-option__logo js"></div>
+            <p>JavaScript</p>
+          </div>
+          <div class="menu-option">
+            <div class="menu-option__logo a11y"></div>
+            <p>Accessibility</p>
+          </div>
+        </div>
+      </section>
+      <!-- Quiz menu end -->
+      
+      <!-- Quiz question start -->
+      <section class="question">
+
+        <div class="question-header">
+          <p>Question 6 of 10</p>
+          <h2>
+            Which of these color contrast ratios is the minimum WCAG 2.1 Level AA requirement for normal text?
+          </h2>
+          <div class="question-progress">
+            <div class="question-progress__bar"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="question-options">
+            <div class="question-option">
+              <span class="letter">A</span>
+              <p class="option-text">4.5 : 1</p>
+            </div>
+            <div class="question-option">
+              <span class="letter">B</span>
+              <p class="option-text">3 : 1</p>
+            </div>
+            <div class="question-option">
+              <span class="letter">C</span>
+              <p class="option-text">2.5 : 1</p>
+            </div>
+            <div class="question-option">
+              <span class="letter">D</span>
+              <p class="option-text">5 : 1</p>
+            </div>
+          </div>
+          
+          <div class="question-footer">
+            <button class="question-footer__button">Submit Answer</button>
+            <p id="error-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40">
+                <path fill="#EE5454"
+                  d="M20 5a15 15 0 1 1 0 30 15 15 0 0 1 0-30Zm0 2.5a12.5 12.5 0 1 0 0 25 12.5 12.5 0 0 0 0-25Zm-5.402 7.415.142-.175a1.25 1.25 0 0 1 1.595-.143l.175.143L20 18.233l3.49-3.493a1.25 1.25 0 0 1 1.595-.143l.175.143a1.25 1.25 0 0 1 .142 1.595l-.142.175L21.767 20l3.493 3.49a1.25 1.25 0 0 1 .142 1.595l-.142.175a1.25 1.25 0 0 1-1.595.142l-.175-.142L20 21.767l-3.49 3.493a1.25 1.25 0 0 1-1.595.142l-.175-.142a1.25 1.25 0 0 1-.143-1.595l.143-.175L18.233 20l-3.493-3.49a1.25 1.25 0 0 1-.143-1.595Z" />
+              </svg>
+              <span>Please select an answer</span>
+            </p>
+          </div>
+        </div>
+
+      </section>
+      <!-- Quiz question end -->
+      
+      <!-- Quiz completed start -->
+      <section class="completed">
+
+        <div class="heading">
+          <h1>
+            Quiz completed <span>You scored...</span>
+          </h1>
+        </div>
+
+        <div>
+          <div class="display">
+            <div class="topic">
+              <div class="topic-logo a11y"></div>
+              <p class="topic-title">Accessibility</p>
+            </div>
+            <div class="score">8</div>
+            <div class="total">out of 10</div>
+          </div>
+          
+          <div class="completed-options">
+            <button class="complete-btn">
+              Play Again
+            </button>
+          </div>
+        </div>
+
+      </section>
+      <!-- Quiz completed end -->
+
+    </main>
+
+  </div>
+
+</body>
+</html>

@@ -25,23 +25,25 @@ function shuffleArray(array) {
     return array;
 }
 
-const menuDisplay = document.getElementById('menu');
-const menuOptions = document.querySelectorAll('.menu-option');
-const topic = document.getElementById('topic');
-const headerLogo = document.getElementById('header-logo');
-const headerText = document.getElementById('header-text');
-menuOptions.forEach((option) => {
-    option.addEventListener('click', () => {
-        quizObject = quizzes[Number(option.id)];
-        console.log(quizObject);
-        currentListOfQuestions = shuffleArray(quizObject.questions);
-        menuDisplay.style.display = 'none';
-        topic.style.display = 'flex';
-        headerLogo.classList.add(`${quizObject.title.toLowerCase()}`);
-        headerText.textContent = quizObject.title;
-        renderQuiz();
+const start = () => {
+    const menuDisplay = document.getElementById('menu');
+    const menuOptions = document.querySelectorAll('.menu-option');
+    const topic = document.getElementById('topic');
+    const headerLogo = document.getElementById('header-logo');
+    const headerText = document.getElementById('header-text');
+    menuOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+            quizObject = quizzes[Number(option.id)];
+            console.log(quizObject);
+            currentListOfQuestions = shuffleArray(quizObject.questions);
+            menuDisplay.style.display = 'none';
+            topic.style.display = 'flex';
+            headerLogo.classList.add(`${quizObject.title.toLowerCase()}`);
+            headerText.textContent = quizObject.title;
+            renderQuiz();
+        });
     });
-});
+}
 
 const quizContainer = document.getElementById('quiz-container');
 const renderQuiz = () => { 
@@ -176,6 +178,7 @@ const renderQuiz = () => {
                             </div>
                     `
                 });
+                start();
                 return;
             }
             renderQuiz();
@@ -209,3 +212,5 @@ const renderQuiz = () => {
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.addEventListener('click', (el) => handleSubmission(allOptions, currentQuestion, el, handleOptionClick));
 }
+
+start();

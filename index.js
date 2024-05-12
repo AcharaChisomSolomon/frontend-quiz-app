@@ -33,7 +33,6 @@ const headerText = document.getElementById('header-text');
 menuOptions.forEach((option) => {
     option.addEventListener('click', () => {
         quizObject = quizzes[Number(option.id)];
-        console.log(quizObject);
         currentListOfQuestions = shuffleArray(quizObject.questions);
         menuDisplay.style.display = 'none';
         topic.style.display = 'flex';
@@ -183,5 +182,3 @@ const renderQuiz = () => {
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.addEventListener('click', (el) => handleSubmission(allOptions, currentQuestion, el, handleOptionClick));
 }
-
-start();

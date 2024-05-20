@@ -163,15 +163,14 @@ header {
     border-radius: var(--border-radius);
     background: var(--theme-light-option-bg);
     box-shadow: var(--theme-light-box-shadow);
-    transition: all 0.3s;
     padding: 0.75rem;
     cursor: pointer;
 }
 .menu-option:hover, .question-option:hover {
-    padding: 0.9rem;
+    padding: 0.8rem;
 }
 .menu-option:active, .question-option:active {
-    padding: 0.6rem;
+    padding: 0.7rem;
 }
 .dark .menu-option, .dark .question-option {
     background: var(--theme-dark-option-bg);
